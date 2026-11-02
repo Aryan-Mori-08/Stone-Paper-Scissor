@@ -4,12 +4,21 @@ let msg = document.querySelector("#msg")
 let choices = document.querySelectorAll(".choice");
 let usersc = document.querySelector("#user-score");
 let compsc = document.querySelector("#comp-score");
+let resetBtn= document.querySelector("#reset-btn");
 
 const genCompChoice = () =>{
     let options = ["Rock", "Paper", "Scissor"];
     let idx = Math.floor(Math.random()*3);
 
     return options[idx];
+}
+
+const resetGame = () =>{
+    userscore = 0;
+    usersc.innerText = `${userscore}`;
+    compscore = 0;
+    compsc.innerText = `${compscore}`;
+    // console.log("game is reset");
 }
 
 const drawGame = () =>{
@@ -71,3 +80,5 @@ choices.forEach((choice)=>{
         playGame(userChoice);
     })
 })
+
+resetBtn.addEventListener("click", resetGame);
